@@ -783,6 +783,16 @@ public class FileTransfer extends CordovaPlugin {
             }
         }
 
+        if (shouldAllowRequest == null) {
+            try {
+                Method gpm = Config.class.getMethod("isUrlWhiteListed", String.class);
+                shouldAllowRequest = (Boolean) gpm.invoke(null, source);
+            } catch (InvocationTargetException e) {
+            } catch (NoSuchMethodException e) {
+            } catch (IllegalAccessException e) {
+            }
+        }
+
         if (!Boolean.TRUE.equals(shouldAllowRequest)) {
             Log.w(LOG_TAG, "Source URL is not in white list: '" + source + "'");
             JSONObject error = createFileTransferError(CONNECTION_ERR, source, target, null, 401, null);
