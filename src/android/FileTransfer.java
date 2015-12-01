@@ -1,4 +1,10 @@
 /*
+        This is now a kept as forked github repo at:
+         
+        https://github.com/gmackenzie/cordova-plugin-file-transfer/tree/master/src/android
+*/
+
+/*
        Licensed to the Apache Software Foundation (ASF) under one
        or more contributor license agreements.  See the NOTICE file
        distributed with this work for additional information
